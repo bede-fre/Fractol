@@ -6,13 +6,13 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/08 11:45:29 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/03/08 15:18:28 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= fractol
 CC 		= clang
-SRC 		= sources/main.c
+SRC 		= sources/main.c sources/ft_mandelbrot.c sources/ft_draw.c
 INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a
