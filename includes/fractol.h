@@ -19,27 +19,24 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct		s_col
+typedef struct		s_fract
 {
-	unsigned char	r1;
-	unsigned char	g1;
-	unsigned char	b1;
-	unsigned char	r2;
-	unsigned char	g2;
-	unsigned char	b2;
-	short			d_r1;
-	short			d_g1;
-	short			d_b1;
-	short			d_r2;
-	short			d_g2;
-	short			d_b2;
-	unsigned char	l_s_r;
-	unsigned char	l_s_g;
-	unsigned char	l_s_b;
-	unsigned char	l_e_r;
-	unsigned char	l_e_g;
-	unsigned char	l_e_b;
-}					t_col;
+	double      	x;
+	double      	x1;
+	double      	x2;
+	double      	y;
+	double      	y1;
+	double      	y2;
+	double      	i;
+	double      	i_max;
+	double      	img_x;
+	double      	img_y;
+	double      	c_r;
+	double      	c_i;
+	double      	z_r;
+	double      	z_i;
+	double      	tp;
+}					t_fract;
 
 typedef struct		s_draw
 {
@@ -60,12 +57,15 @@ typedef struct		s_draw
 
 typedef struct		s_values
 {
-	t_col			col;
+	int             choice;
+    t_fract			fract;
 	t_draw			draw;
 }					t_values;
 
 void				ft_fill_px(t_values *val, int x, int y, int color);
 void				ft_mandelbrot(t_values *val);
+void				ft_julia(t_values *val);
+void				ft_burning_ship(t_values *val);
 int					ft_deal_key(int key, t_values *val);
 int					ft_merge_color(unsigned char red, unsigned char green,
 					unsigned char blue);

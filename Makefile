@@ -11,8 +11,9 @@
 # **************************************************************************** #
 
 NAME		= fractol
-CC 		= clang
-SRC 		= sources/main.c sources/ft_mandelbrot.c sources/ft_draw.c
+CC	 		= clang
+SRC 		= sources/main.c sources/ft_mandelbrot.c sources/ft_draw.c \
+				sources/ft_julia.c sources/ft_burning_ship.c
 INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a
