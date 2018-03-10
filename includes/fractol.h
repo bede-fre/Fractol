@@ -42,7 +42,9 @@ typedef struct		s_draw
 {
 	void			*mlx;
 	void			*win;
+	void			*win2;
 	void			*img;
+	void			*img2;
 	char			*s_px;
 	int				endian;
 	int				bpp;
@@ -57,7 +59,8 @@ typedef struct		s_draw
 
 typedef struct		s_values
 {
-	int             choice;
+	int             choice1;
+	int             choice2;
     t_fract			fract;
 	t_draw			draw;
 }					t_values;
@@ -67,6 +70,7 @@ void				ft_mandelbrot(t_values *val);
 void				ft_julia(t_values *val);
 void				ft_burning_ship(t_values *val);
 int					ft_deal_key(int key, t_values *val);
+int					ft_deal_key2(int key, t_values *val);
 int					ft_merge_color(unsigned char red, unsigned char green,
 					unsigned char blue);
 
