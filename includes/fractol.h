@@ -50,10 +50,13 @@ typedef struct		s_draw
 	int				bpp;
 	int				sz_ln_px;
 	double			zoom;
+	double			zoom2;
 	double			l_win;
 	double			w_win;
-	int				var_x;
-	int				var_y;
+	double			var_x;
+	double			var_x2;
+	double			var_y;
+	double			var_y2;
 	double			r;
 }					t_draw;
 
@@ -66,9 +69,9 @@ typedef struct		s_values
 }					t_values;
 
 void				ft_fill_px(t_values *val, int x, int y, int color);
-void				ft_mandelbrot(t_values *val);
-void				ft_julia(t_values *val);
-void				ft_burning_ship(t_values *val);
+void				ft_mandelbrot(t_values *val, double var_x, double var_y, double zoom);
+void				ft_julia(t_values *val, double var_x, double var_y, double zoom);
+void				ft_burning_ship(t_values *val, double var_x, double var_y, double zoom);
 int					ft_deal_key(int key, t_values *val);
 int					ft_deal_key2(int key, t_values *val);
 int					ft_merge_color(unsigned char red, unsigned char green,
