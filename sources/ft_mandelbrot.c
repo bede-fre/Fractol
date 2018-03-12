@@ -6,16 +6,16 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:13:17 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/08 16:15:00 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/12 11:13:22 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void ft_init_val1_mandelbrot(t_values *val, double zoom)
+static void	 ft_init_val1_mandelbrot(t_values *val, double zoom)
 {
-	val->fract.x1 = -2.1;
-	val->fract.x2 = 0.6;
+	val->fract.x1 = -2.0;
+	val->fract.x2 = 1.2;
 	val->fract.y1 = -1.2;
 	val->fract.y2 = 1.2;
 	val->fract.i_max = 50.0;
@@ -24,7 +24,7 @@ static void ft_init_val1_mandelbrot(t_values *val, double zoom)
 	val->fract.img_y = (val->fract.y2 - val->fract.y1) * zoom;
 }
 
-static void ft_init_val2_mandelbrot(t_values *val, double zoom)
+static void	ft_init_val2_mandelbrot(t_values *val, double zoom)
 {
 	val->fract.c_r = (val->fract.x / zoom) + val->fract.x1;
 	val->fract.c_i = (val->fract.y / zoom) + val->fract.y1;
@@ -33,29 +33,31 @@ static void ft_init_val2_mandelbrot(t_values *val, double zoom)
 	val->fract.z_i = 0.0;
 }
 
-void	    ft_mandelbrot(t_values *val, double var_x, double var_y, double zoom)
+void		ft_mandelbrot(t_values *val, double var_x, double var_y, double zoom)
 {
+	(void)var_x;
+	(void)var_y;
 	ft_init_val1_mandelbrot(val, zoom);
-    while (++(val->fract.x) < val->fract.img_x)
+	while (++(val->fract.x) < val->fract.img_x)
 	{
 		val->fract.y = -1;
 		while (++(val->fract.y) < val->fract.img_y)
 		{
-	        ft_init_val2_mandelbrot(val, zoom);
-            while (((val->fract.z_r * val->fract.z_r)
-                + (val->fract.z_i * val->fract.z_i)) < 4.0
-                && (++(val->fract.i) < (val->fract.i_max)))
+			ft_init_val2_mandelbrot(val, zoom);
+			while (((val->fract.z_r * val->fract.z_r)
+				+ (val->fract.z_i * val->fract.z_i)) < 4.0
+					&& (++(val->fract.i) < (val->fract.i_max)))
 			{
 				val->fract.tp = val->fract.z_r;
 				val->fract.z_r = (val->fract.z_r * val->fract.z_r)
-                    - (val->fract.z_i * val->fract.z_i) + val->fract.c_r;
+					- (val->fract.z_i * val->fract.z_i) + val->fract.c_r;
 				val->fract.z_i = (2.0 * val->fract.z_i * val->fract.tp)
-                    + val->fract.c_i;
+					+ val->fract.c_i;
 			}
 			if (val->fract.i == val->fract.i_max)
-				ft_fill_px(val, (val->fract.x + var_x), (val->fract.y + var_y), 0);
+				ft_fill_px(val, (val->fract.x), (val->fract.y), 0);
 			else
-                ft_fill_px(val, (val->fract.x + var_x), (val->fract.y + var_y), (val->fract.i * 255.0) * (val->fract.i_max));
-        }
+				ft_fill_px(val, (val->fract.x), (val->fract.y), (val->fract.i * 255.0) * (val->fract.i_max));
+		}
 	}
 }

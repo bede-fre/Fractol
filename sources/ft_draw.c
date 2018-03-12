@@ -6,13 +6,13 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/08 15:28:05 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/12 18:19:26 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_fill_px(t_values *val, int x, int y, int color)
+void		ft_fill_px(t_values *val, int x, int y, int color)
 {
 	int		px;
 
@@ -53,6 +53,26 @@ static void	ft_move_zoom(int key, t_values *val)
 	if (key == 3)
 		val->draw.var_y2 -= 10;
 }
+/*
+int			ft_deal_mouse(int mouse, t_values *val)
+{
+	(void)val;
+	ft_putnbr(mouse);
+	ft_putstr("\n");
+	ft_julia(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
+	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
+	return (0);
+}*/
+/*
+int			ft_deal_mouse2(int mouse, t_values *val)
+{
+	(void)val;
+	ft_putnbr(mouse);
+	ft_putstr("\n");
+	ft_julia(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
+	mlx_put_image_to_window(val->draw.mlx, val->draw.win2, val->draw.img2, 0, 0);
+	return (0);
+}*/
 
 int			ft_deal_key(int key, t_values *val)
 {
@@ -62,17 +82,17 @@ int			ft_deal_key(int key, t_values *val)
 		val->draw.l_win);
 	val->draw.s_px = mlx_get_data_addr(val->draw.img, &val->draw.bpp,
 		&val->draw.sz_ln_px, &val->draw.endian);
-    if (key == 1 || key == 2 || key == 3 || key == 0 || key == 123 || key == 124 || key == 125
-		|| key == 126 || key == 35 || key == 41 || key == 37 || key == 31)
+	if (key == 123 || key == 124 || key == 125 || key == 126 || key == 35
+		|| key == 41)
 		ft_move_zoom(key, val);
-    if (val->choice1 == 1)
-        ft_mandelbrot(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
-    if (val->choice1 == 2)
-        ft_julia(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
-    if (val->choice1 == 3)
-        ft_burning_ship(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
-    mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
-    if (key == 53)
+	if (val->choice1 == 1)
+		ft_mandelbrot(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
+	if (val->choice1 == 2)
+		ft_julia(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
+	if (val->choice1 == 3)
+		ft_burning_ship(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
+	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
+	if (key == 53)
 		exit(0);
 	return (0);
 }
@@ -84,17 +104,17 @@ int			ft_deal_key2(int key, t_values *val)
 	val->draw.img2 = mlx_new_image(val->draw.mlx, val->draw.w_win,
 		val->draw.l_win);
 	val->draw.s_px = mlx_get_data_addr(val->draw.img2, &val->draw.bpp,
-		&val->draw.sz_ln_px, &val->draw.endian);
-    if (key == 1 || key == 2 || key == 3 || key == 0 || key == 123 || key == 124 || key == 125
-		|| key == 126 || key == 35 || key == 41 || key == 37 || key == 31)
+			&val->draw.sz_ln_px, &val->draw.endian);
+	if (key == 1 || key == 2 || key == 3 || key == 0 || key == 37
+		|| key == 31)
 		ft_move_zoom(key, val);
-    if (val->choice2 == 1)
-        ft_mandelbrot(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
-    if (val->choice2 == 2)
-        ft_julia(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
-    if (val->choice2 == 3)
-        ft_burning_ship(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
-    mlx_put_image_to_window(val->draw.mlx, val->draw.win2, val->draw.img2, 0, 0);
+	if (val->choice2 == 1)
+		ft_mandelbrot(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
+	if (val->choice2 == 2)
+		ft_julia(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
+	if (val->choice2 == 3)
+		ft_burning_ship(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
+	mlx_put_image_to_window(val->draw.mlx, val->draw.win2, val->draw.img2, 0, 0);
 	if (key == 53)
 		exit(0);
 	return (0);
