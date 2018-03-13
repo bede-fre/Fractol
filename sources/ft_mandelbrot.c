@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:13:17 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/13 16:53:47 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/13 17:27:51 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,16 @@ static void	ft_init_val2_mandelbrot(t_values *val)
 
 void		ft_mandelbrot(t_values *val)
 {
-	val->fract.x1 = -2.1;
-	val->fract.x2 = 1.1;
-	val->fract.y1 = -1.2;
-	val->fract.y1 = 1.2;
-	val->fract.i_max = 50.0;
-	val->fract.x = -1.0;
+//	val->fract.x1 = -2.1;
+//	val->fract.x2 = 1.1;
+//	val->fract.y1 = -1.2;
+//	val->fract.y2 = 1.2;
+//	val->fract.i_max = 50.0;
 	val->fract.x = -1.0;
 //	val->fract.img_x = (val->fract.x2 - val->fract.x1) * val->draw.zoom;
 //	val->fract.img_y = (val->fract.y2 - val->fract.y1) * val->draw.zoom;
 	val->fract.img_x = 800.0;
 	val->fract.img_y = 600.0;
-	val->fract.x = -1.0;
 	printf("%f - %f\n", val->fract.img_x, val->fract.img_y);
 	while (++(val->fract.x) < val->fract.img_x)
 	{

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/13 17:00:51 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/13 17:27:20 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void				ft_burning_ship(t_values *val);
 void				ft_init_values_fract(t_values *val);
 int					ft_deal_key(int key, t_values *val);
 int					ft_deal_mouse(int mouse, int x, int y, t_values *val);
+void				ft_values(t_values *val);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/13 17:01:08 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/13 17:15:54 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ double	ft_mapping(double p_s, double p_e, double mapping, int mouse)
 		return (p_s + ((p_e - p_s) / mapping));
 }
 
-void	ft_zoom(t_values *val, int x, int y, int mouse)
+void	ft_zoom(t_values *val, int x, int y, int mouse, double zoom)
 {
 	double	mapping;
 	double	m_r;
 	double	m_i;
 
-	mapping = (1.0 / val->draw.zoom);
+	mapping = (1.0 / zoom);
 	m_r = (double)x / (val->draw.w_win / (val->fract.x2 - val->fract.x1)) + val->fract.x1;
 	m_i = (double)y / (val->draw.l_win / (val->fract.y2 - val->fract.y1)) + val->fract.y1;
 	val->fract.x1 = ft_mapping(m_r, val->fract.x1, mapping, mouse);
@@ -56,15 +56,15 @@ int			ft_deal_mouse(int mouse, int x, int y, t_values *val)
 //	val->draw.s_px = mlx_get_data_addr(val->draw.img, &val->draw.bpp, &val->draw.sz_ln_px, &val->draw.endian);
 	if (mouse == 5)
 	{
-		val->fract.i_max -= 10.0;
+		val->fract.i_max -= 5.0;
 		val->draw.zoom /= 1.5;
-		ft_zoom(val, x, y, mouse);
+		ft_zoom(val, x, y, mouse, 1.5);
 	}
 	if (mouse == 4)
 	{
-		val->fract.i_max += 10.0;
+		val->fract.i_max += 5.0;
 		val->draw.zoom *= 1.5;
-		ft_zoom(val, x, y, mouse);
+		ft_zoom(val, x, y, mouse, 1.5);
 	}
 	if (val->choice == 1)
 		ft_mandelbrot(val);

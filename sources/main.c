@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/13 17:01:37 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/13 17:28:16 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int				main(int ac, char **av)
 		}
 		ft_params_window(val);
 		val->draw.mlx = mlx_init();
+		ft_values(val);
 		ft_init_image(val);
 		mlx_mouse_hook(val->draw.win, ft_deal_mouse, val);
 		mlx_key_hook(val->draw.win, ft_deal_key, val);

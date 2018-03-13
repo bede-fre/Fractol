@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:13:17 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/13 16:56:04 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/13 17:33:01 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static void	ft_init_val2_burning_ship(t_values *val)
 
 void		ft_burning_ship(t_values *val)
 {
-	val->fract.x1 = -2.0;
-	val->fract.x2 = 1.2;
-	val->fract.y1 = -1.7;
-	val->fract.y2 = 0.7;
-	val->fract.i_max = 50.0;
+//	val->fract.x1 = -2.0;
+//	val->fract.x2 = 1.2;
+//	val->fract.y1 = -1.7;
+//	val->fract.y2 = 0.7;
+//	val->fract.i_max = 50.0;
 	val->fract.x = -1.0;
 //	val->fract.img_x = (val->fract.x2 - val->fract.x1) * val->draw.zoom;
 //	val->fract.img_y = (val->fract.y2 - val->fract.y1) * val->draw.zoom;
