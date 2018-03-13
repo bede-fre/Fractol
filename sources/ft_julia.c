@@ -6,57 +6,52 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:13:17 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/12 18:28:04 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/13 16:55:01 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	ft_init_val1_julia(t_values *val, double zoom)
+static void	ft_init_val2_julia(t_values *val)
 {
-	val->fract2.x1 = -1.6;
-	val->fract2.x2 = 1.6;
-	val->fract2.y1 = -1.2;
-	val->fract2.y2 = 1.2;
-	val->fract2.i_max = 150.0;
-	val->fract2.x = -1.0;
-	val->fract2.img_x = (val->fract2.x2 - val->fract2.x1) * zoom;
-	val->fract2.img_y = (val->fract2.y2 - val->fract2.y1) * zoom;
+	val->fract.i = -1.0;
+	val->fract.z_r = (val->fract.x / val->draw.zoom) + val->fract.x1;
+	val->fract.z_i = (val->fract.y / val->draw.zoom) + val->fract.y1;
 }
 
-static void	ft_init_val2_julia(t_values *val, double zoom)
+void		ft_julia(t_values *val)
 {
-	val->fract2.i = -1.0;
-	val->fract2.z_r = (val->fract2.x / zoom) + val->fract2.x1;
-	val->fract2.z_i = (val->fract2.y / zoom) + val->fract2.y1;
-}
-
-void		ft_julia(t_values *val, double var_x, double var_y, double zoom)
-{
-	(void)var_x;
-	(void)var_y;
-	ft_init_val1_julia(val, zoom);
-	while (++(val->fract2.x) < val->fract2.img_x)
+	val->fract.x1 = -1.6;
+	val->fract.x2 = 1.6;
+	val->fract.y1 = -1.2;
+	val->fract.y2 = 1.2;
+	val->fract.i_max = 150.0;
+	val->fract.x = -1.0;
+//	val->fract.img_x = (val->fract.x2 - val->fract.x1) * val->draw.zoom;
+//	val->fract.img_y = (val->fract.y2 - val->fract.y1) * val->draw.zoom;
+	val->fract.img_x = 800.0;
+	val->fract.img_y = 600.0;
+	while (++(val->fract.x) < val->fract.img_x)
 	{
-		val->fract2.y = -1.0;
-		while (++(val->fract2.y) < val->fract2.img_y)
+		val->fract.y = -1.0;
+		while (++(val->fract.y) < val->fract.img_y)
 		{
-			ft_init_val2_julia(val, zoom);
-			while (((val->fract2.z_r * val->fract2.z_r)
-				+ (val->fract2.z_i * val->fract2.z_i)) < 4.0
-					&& (++(val->fract2.i) < (val->fract2.i_max)))
+			ft_init_val2_julia(val);
+			while (((val->fract.z_r * val->fract.z_r)
+				+ (val->fract.z_i * val->fract.z_i)) < 4.0
+					&& (++(val->fract.i) < (val->fract.i_max)))
 			{
-				val->fract2.tp = val->fract2.z_r;
-				val->fract2.z_r = (val->fract2.z_r * val->fract2.z_r)
-					- (val->fract2.z_i * val->fract2.z_i) + val->fract2.c_r;
-				val->fract2.z_i = (2.0 * val->fract2.z_i * val->fract2.tp)
-					+ val->fract2.c_i;
+				val->fract.tp = val->fract.z_r;
+				val->fract.z_r = (val->fract.z_r * val->fract.z_r)
+					- (val->fract.z_i * val->fract.z_i) + val->fract.c_r;
+				val->fract.z_i = (2.0 * val->fract.z_i * val->fract.tp)
+					+ val->fract.c_i;
 			}
-			if (val->fract2.i == val->fract2.i_max)
-				ft_fill_px(val, (val->fract2.x), (val->fract2.y), 0);
+			if (val->fract.i == val->fract.i_max)
+				ft_fill_px(val, (val->fract.x), (val->fract.y), 0);
 			else
-				ft_fill_px(val, (val->fract2.x), (val->fract2.y), (val->fract2.i
-					* 255.0) * val->fract2.i_max);
+				ft_fill_px(val, (val->fract.x), (val->fract.y), (val->fract.i
+					* 255.0) * val->fract.i_max);
 		}
 	}
 }

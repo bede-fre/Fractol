@@ -6,19 +6,19 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/08 15:18:28 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/03/13 16:58:17 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= fractol
-CC	 		= clang
+CC		= clang
 SRC 		= sources/main.c sources/ft_mandelbrot.c sources/ft_draw.c \
-				sources/ft_julia.c sources/ft_burning_ship.c
+			sources/ft_julia.c sources/ft_burning_ship.c
 INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a
 OBJ		= $(SRC:.c=.o)
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -O -O1 -O2 -O3
 
 _GREY		=$ \033[30m
 _RED		=$ \033[31m
@@ -48,7 +48,7 @@ minilibx:
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) -framework OpenGL -framework Appkit $(OBJ) $(MINILIBX) $(LIBFT) -o $(NAME)
-	@printf "$(_CLEAR)$(_CYAN)# EXECUTABLE FILE CREATION # $(_GREEN)fdf\n$(_END)"
+	@printf "$(_CLEAR)$(_CYAN)# EXECUTABLE FILE CREATION # $(_GREEN)fractol\n$(_END)"
 	@printf "$(_GREEN)# EXECUTABLE FILE CREATED #\n$(_END)$(_SHOW_CURS)"
 
 %.o: %.c

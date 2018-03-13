@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/12 18:19:26 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/13 17:01:08 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,95 +26,59 @@ void		ft_fill_px(t_values *val, int x, int y, int color)
 	val->draw.s_px[px + 3] = (unsigned char)(color >> 24);
 }
 
-static void	ft_move_zoom(int key, t_values *val)
+double	ft_mapping(double p_s, double p_e, double mapping, int mouse)
 {
-	if (key == 35)
-		val->draw.zoom += 5;
-	if (key == 41)
-		val->draw.zoom -= 5;
-	if (key == 31)
-		val->draw.zoom2 += 5;
-	if (key == 37)
-		val->draw.zoom2 -= 5;
-	if (key == 123)
-		val->draw.var_x -= 10;
-	if (key == 124)
-		val->draw.var_x += 10;
-	if (key == 125)
-		val->draw.var_y += 10;
-	if (key == 126)
-		val->draw.var_y -= 10;
-	if (key == 0)
-		val->draw.var_x2 -= 10;
-	if (key == 1)
-		val->draw.var_x2 += 10;
-	if (key == 2)
-		val->draw.var_y2 += 10;
-	if (key == 3)
-		val->draw.var_y2 -= 10;
+	if (mouse == 4)
+		return (p_s + ((p_e - p_s) * mapping));
+	else
+		return (p_s + ((p_e - p_s) / mapping));
 }
-/*
-int			ft_deal_mouse(int mouse, t_values *val)
+
+void	ft_zoom(t_values *val, int x, int y, int mouse)
 {
-	(void)val;
-	ft_putnbr(mouse);
-	ft_putstr("\n");
-	ft_julia(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
+	double	mapping;
+	double	m_r;
+	double	m_i;
+
+	mapping = (1.0 / val->draw.zoom);
+	m_r = (double)x / (val->draw.w_win / (val->fract.x2 - val->fract.x1)) + val->fract.x1;
+	m_i = (double)y / (val->draw.l_win / (val->fract.y2 - val->fract.y1)) + val->fract.y1;
+	val->fract.x1 = ft_mapping(m_r, val->fract.x1, mapping, mouse);
+	val->fract.x2 = ft_mapping(m_r, val->fract.x2, mapping, mouse);
+	val->fract.y1 = ft_mapping(m_i, val->fract.y1, mapping, mouse);
+	val->fract.y2 = ft_mapping(m_i, val->fract.y2, mapping, mouse);
+}
+
+int			ft_deal_mouse(int mouse, int x, int y, t_values *val)
+{
+//	mlx_destroy_image(val->draw.mlx, val->draw.img);
+//	val->draw.img = mlx_new_image(val->draw.mlx, val->draw.w_win, val->draw.l_win);
+//	val->draw.s_px = mlx_get_data_addr(val->draw.img, &val->draw.bpp, &val->draw.sz_ln_px, &val->draw.endian);
+	if (mouse == 5)
+	{
+		val->fract.i_max -= 10.0;
+		val->draw.zoom /= 1.5;
+		ft_zoom(val, x, y, mouse);
+	}
+	if (mouse == 4)
+	{
+		val->fract.i_max += 10.0;
+		val->draw.zoom *= 1.5;
+		ft_zoom(val, x, y, mouse);
+	}
+	if (val->choice == 1)
+		ft_mandelbrot(val);
+	if (val->choice == 2)
+		ft_julia(val);
+	if (val->choice == 3)
+		ft_burning_ship(val);
 	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
 	return (0);
-}*/
-/*
-int			ft_deal_mouse2(int mouse, t_values *val)
-{
-	(void)val;
-	ft_putnbr(mouse);
-	ft_putstr("\n");
-	ft_julia(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
-	mlx_put_image_to_window(val->draw.mlx, val->draw.win2, val->draw.img2, 0, 0);
-	return (0);
-}*/
+}
 
 int			ft_deal_key(int key, t_values *val)
 {
-	mlx_clear_window(val->draw.mlx, val->draw.win);
-	mlx_destroy_image(val->draw.mlx, val->draw.img);
-	val->draw.img = mlx_new_image(val->draw.mlx, val->draw.w_win,
-		val->draw.l_win);
-	val->draw.s_px = mlx_get_data_addr(val->draw.img, &val->draw.bpp,
-		&val->draw.sz_ln_px, &val->draw.endian);
-	if (key == 123 || key == 124 || key == 125 || key == 126 || key == 35
-		|| key == 41)
-		ft_move_zoom(key, val);
-	if (val->choice1 == 1)
-		ft_mandelbrot(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
-	if (val->choice1 == 2)
-		ft_julia(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
-	if (val->choice1 == 3)
-		ft_burning_ship(val, val->draw.var_x, val->draw.var_y, val->draw.zoom);
-	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
-	if (key == 53)
-		exit(0);
-	return (0);
-}
-
-int			ft_deal_key2(int key, t_values *val)
-{
-	mlx_clear_window(val->draw.mlx, val->draw.win2);
-	mlx_destroy_image(val->draw.mlx, val->draw.img2);
-	val->draw.img2 = mlx_new_image(val->draw.mlx, val->draw.w_win,
-		val->draw.l_win);
-	val->draw.s_px = mlx_get_data_addr(val->draw.img2, &val->draw.bpp,
-			&val->draw.sz_ln_px, &val->draw.endian);
-	if (key == 1 || key == 2 || key == 3 || key == 0 || key == 37
-		|| key == 31)
-		ft_move_zoom(key, val);
-	if (val->choice2 == 1)
-		ft_mandelbrot(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
-	if (val->choice2 == 2)
-		ft_julia(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
-	if (val->choice2 == 3)
-		ft_burning_ship(val, val->draw.var_x2, val->draw.var_y2, val->draw.zoom2);
-	mlx_put_image_to_window(val->draw.mlx, val->draw.win2, val->draw.img2, 0, 0);
+	(void)val;
 	if (key == 53)
 		exit(0);
 	return (0);
