@@ -6,13 +6,13 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/13 13:03:29 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/03/14 10:55:07 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 CC		= clang
-FLAGS		= -Wall -Wextra -Werror -O -O1 -O2 -O3
+FLAGS		= -Wall -Wextra -Werror
 SRC 		= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 			ft_isascii.c ft_isdigit.c ft_islower.c ft_isupper.c \
 			ft_isprint.c ft_itoa.c ft_memalloc.c ft_memccpy.c \

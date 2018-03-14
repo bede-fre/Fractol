@@ -6,12 +6,12 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/13 17:27:20 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/14 19:40:34 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_FDF_H
-# define FT_FDF_H
+#ifndef FT_FRACTOL_H
+# define FT_FRACTOL_H
 
 # include "libft.h"
 # include "mlx.h"
@@ -49,13 +49,16 @@ typedef struct		s_draw
 	int				bpp;
 	int				sz_ln_px;
 	double			zoom;
+	double			coef_zoom;
 	double			l_win;
 	double			w_win;
 }					t_draw;
 
 typedef struct		s_values
 {
-	int				choice;
+	char			choice;
+	char			stop;
+	char			set;
 	t_fract			fract;
 	t_draw			draw;
 }					t_values;
@@ -68,5 +71,8 @@ void				ft_init_values_fract(t_values *val);
 int					ft_deal_key(int key, t_values *val);
 int					ft_deal_mouse(int mouse, int x, int y, t_values *val);
 void				ft_values(t_values *val);
+int					ft_color(t_values *val);
+int					ft_mouse_cord(int x, int y, t_values *val);
+void				ft_choice_fract(t_values *val);
 
 #endif

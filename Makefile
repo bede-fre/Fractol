@@ -6,7 +6,7 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/13 17:28:49 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/03/14 16:12:24 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,12 @@ NAME		= fractol
 CC		= clang
 SRC 		= sources/main.c sources/ft_mandelbrot.c sources/ft_draw.c \
 			sources/ft_julia.c sources/ft_burning_ship.c \
-			sources/ft_values.c
+			sources/ft_values_and_color.c
 INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a
 OBJ		= $(SRC:.c=.o)
-FLAGS		= -Wall -Wextra -Werror -O -O1 -O2 -O3
+FLAGS		= -Wall -Wextra -Werror
 
 _GREY		=$ \033[30m
 _RED		=$ \033[31m
