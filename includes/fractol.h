@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/14 19:40:34 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/15 11:29:46 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ void				ft_values(t_values *val);
 int					ft_color(t_values *val);
 int					ft_mouse_cord(int x, int y, t_values *val);
 void				ft_choice_fract(t_values *val);
+void				ft_str_fract(t_values *val);
 
 #endif

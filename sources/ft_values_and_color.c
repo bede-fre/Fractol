@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 17:23:23 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/14 19:34:43 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/15 11:30:44 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ int			ft_color(t_values *val)
 	int	green;
 	int	blue;
 
+	red = 0;
+	green = 0;
+	blue = 0;
 	if (val->set == 1)
 	{
 		red = (255 - (int)(val->fract.i * 255.0 / val->fract.i_max));
@@ -53,29 +56,13 @@ int			ft_color(t_values *val)
 		blue = (255 - (int)(val->fract.i * 255.0 / val->fract.i_max));
 	}
 	if (val->set == 2)
-	{
 		red = (int)(val->fract.i * 255.0 / val->fract.i_max);
-		green = (int)(val->fract.i * 0.0 / val->fract.i_max);
-		blue = (int)(val->fract.i * 0.0 / val->fract.i_max);
-	}
 	if (val->set == 3)
-	{
-		red = (int)(val->fract.i * 0.0 / val->fract.i_max);
 		green = (int)(val->fract.i * 255.0 / val->fract.i_max);
-		blue = (int)(val->fract.i * 0.0 / val->fract.i_max);
-	}
 	if (val->set == 4)
-	{
-		red = (int)(val->fract.i * 0.0 / val->fract.i_max);
-		green = (int)(val->fract.i * 0.0 / val->fract.i_max);
 		blue = (int)(val->fract.i * 255.0 / val->fract.i_max);
-	}
 	if (val->set == 5)
-	{
-		red = 0;
-		green = 0;
 		blue = (int)(val->fract.i * 255.0) * (val->fract.i_max);
-	}
 	return (red << 16 | green << 8 | blue);
 }
 
@@ -93,6 +80,25 @@ void		ft_fill_px(t_values *val, int x, int y, int color)
 	val->draw.s_px[px + 3] = (unsigned char)(color >> 24);
 }
 
+void		ft_str_fract(t_values *val)
+{
+	if (val->choice == 1)
+	{
+		mlx_string_put(val->draw.mlx, val->draw.win, 685, 10, 0xFF0000,
+			"Mandelbrot");
+	}
+	if (val->choice == 2)
+	{
+		mlx_string_put(val->draw.mlx, val->draw.win, 735, 10, 0xFF0000,
+			"Julia");
+	}
+	if (val->choice == 3)
+	{
+		mlx_string_put(val->draw.mlx, val->draw.win, 665, 10, 0xFF0000,
+				"Burning_ship");
+	}
+}
+
 void		ft_choice_fract(t_values *val)
 {
 	if (val->choice == 1)
@@ -102,4 +108,5 @@ void		ft_choice_fract(t_values *val)
 	if (val->choice == 3)
 		ft_burning_ship(val);
 	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
+	ft_str_fract(val);
 }

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/14 19:25:31 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/15 11:31:42 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ int				ft_mouse_cord(int x, int y, t_values *val)
 	if (val->choice == 2)
 		ft_julia(val);
 	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
+	ft_str_fract(val);
 	return (0);
 }
 
 static void		ft_init_image(t_values *val)
 {
 	val->draw.win = mlx_new_window(val->draw.mlx, val->draw.w_win,
-		val->draw.l_win, "Fractol_1");
+		val->draw.l_win, "Fractol");
 	val->draw.img = mlx_new_image(val->draw.mlx, val->draw.w_win,
 		val->draw.l_win);
 	val->draw.s_px = mlx_get_data_addr(val->draw.img, &val->draw.bpp,
