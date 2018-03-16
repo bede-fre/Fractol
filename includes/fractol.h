@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/16 14:42:34 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/16 16:54:55 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ typedef struct		s_fract
 	double			z_r;
 	double			z_i;
 	double			tp;
+	double			z_n;
+	double			continuous_index;
+	unsigned char	channel0;
+	unsigned char	channel1;
+	unsigned char	channel2;
+	unsigned char	channel3;
+	int				color;
 }					t_fract;
 
 typedef struct		s_draw
