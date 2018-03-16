@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/15 18:17:46 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/16 10:18:18 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,6 @@ static void		ft_params_window(t_values *val)
 	val->draw.coef_zoom = 1.5;
 	val->stop = 0;
 	val->set = 1;
-	val->draw.con_x = 0.0;
-	val->draw.con_y = 0.0;
-	val->draw.var_x = val->draw.con_x;
-	val->draw.var_y = val->draw.con_y;
 }
 
 int				ft_mouse_cord(int x, int y, t_values *val)

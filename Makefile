@@ -6,36 +6,39 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/15 10:30:25 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/03/15 16:00:21 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= fractol
 CC		= clang
-SRC 		= sources/main.c sources/ft_burning_ship.c sources/ft_julia.c \
-			sources/ft_mandelbrot.c sources/ft_values_and_color.c \
-			sources/ft_mouse_events.c sources/ft_keyboard_events.c
+SRC 		= main.c ft_burning_ship.c ft_julia.c \
+			ft_mandelbrot.c ft_values_and_color.c \
+			ft_mouse_events.c ft_keyboard_events.c
 INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a
-OBJ		= $(SRC:.c=.o)
+OBJ		= $(addprefix ./sources/, $(SRC:.c=.o))
 FLAGS		= -Wall -Wextra -Werror
+FRAMEWORK	= -lpthread -framework OpenGL -framework Appkit
 
-_GREY		=$ \033[30m
-_RED		=$ \033[31m
-_GREEN		=$ \033[32m
-_YELLOW		=$ \033[33m
-_BLUE		=$ \033[34m
-_PURPLE		=$ \033[35m
-_CYAN		=$ \033[36m
-_WHITE		=$ \033[37m
-_END		=$ \033[0m
-_BOLD		=$ \033[1m
-_CLEAR		=$ \033[2K
-_SAVE		=$ \033[7
-_BACK		=$ \033[8
-_HIDE_CURS	=$ \033[?25l
-_SHOW_CURS	=$ \033[?25h
+_GREY		= "\033[30m"
+_RED		= "\033[31m"
+_GREEN		= "\033[32m"
+_YELLOW		= "\033[33m"
+_BLUE		= "\033[34m"
+_PURPLE		= "\033[35m"
+_CYAN		= "\033[36m"
+_WHITE		= "\033[37m"
+_END		= "\033[0m"
+_BOLD		= "\033[1m"
+_CLEAR		= "\033[2K"
+_SAVE		= "\033[7"
+_BACK		= "\033[8"
+_HIDE_CURS	= "\033[?25l"
+_SHOW_CURS	= "\033[?25h"
+_UP		= "\033[A"
+_CUT		= "\033[k"
 
 .PHONY: all libft minilibx clean fclean re
 
@@ -48,26 +51,25 @@ minilibx:
 	@make -C minilibx
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) -framework OpenGL -framework Appkit $(OBJ) $(MINILIBX) $(LIBFT) -o $(NAME)
-	@printf "$(_CLEAR)$(_CYAN)# EXECUTABLE FILE CREATION # $(_GREEN)fractol\n$(_END)"
-	@printf "$(_GREEN)# EXECUTABLE FILE CREATED #\n$(_END)$(_SHOW_CURS)"
+	@$(CC) $(FLAGS) $(FRAMEWORK) $(OBJ) $(MINILIBX) $(LIBFT) -o $(NAME)
+	@echo $(_CLEAR)$(_CYAN)"# EXECUTABLE FILE CREATION # "$(_GREEN)fractol$(_END)
+	@printf $(_GREEN)"# EXECUTABLE FILE CREATED #\n"$(_END)$(_SHOW_CURS)
 
 %.o: %.c
 	@$(CC) $(FLAGS) -I $(INCLUDES) -c $^ -o $@
-	@printf "$(_CLEAR)$(_CYAN)# EXECUTABLE FILE CREATION # $(_END)"
-	@printf "$(_YELLOW)$@$(_END)"
-	@printf "$(_HIDE_CURS)\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"
+	@echo $(_CLEAR)$(_CYAN)"# EXECUTABLE FILE CREATION # "$(_YELLOW)$@$(_END)
+	@printf $(_HIDE_CURS)$(_UP)$(_CUT)
 
 clean:
 	@make -C libft clean
 	@make -C minilibx clean
 	@/bin/rm -f $(OBJ)
-	@printf "$(_RED)# DELETE EXECUTABLE OBJECT FILES #\n$(_END)"
+	@echo $(_RED)"# DELETE EXECUTABLE OBJECT FILES #"$(_END)
 
 
 fclean: clean
 	@/bin/rm -f $(NAME) $(LIBFT)
-	@printf "$(_RED)# DELETE LIBRARY FILE #\n$(_END)"
-	@printf "$(_RED)# DELETE EXECUTABLE FILE #\n$(_END)"
+	@echo $(_RED)"# DELETE LIBRARY FILE #"$(_END)
+	@echo $(_RED)"# DELETE EXECUTABLE FILE #"$(_END)
 
 re: fclean all

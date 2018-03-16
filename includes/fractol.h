@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/15 11:29:46 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/16 12:25:49 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
+# include <pthread.h>
 
 typedef struct		s_fract
 {

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:13:17 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/15 18:30:23 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/16 10:16:55 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,9 @@ void		ft_mandelbrot(t_values *val)
 					+ val->fract.c_i;
 			}
 			if (val->fract.i == val->fract.i_max)
-				ft_fill_px(val, (val->fract.x) + val->draw.var_x, (val->fract.y)
-					+ val->draw.var_y, 0);
+				ft_fill_px(val, (val->fract.x), (val->fract.y), 0);
 			else
-				ft_fill_px(val, (val->fract.x) + val->draw.var_x, (val->fract.y)
-					+ val->draw.var_y, ft_color(val));
+				ft_fill_px(val, (val->fract.x), (val->fract.y), ft_color(val));
 		}
 	}
 }

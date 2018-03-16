@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 17:23:23 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/15 11:30:44 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/16 12:34:03 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void		ft_values(t_values *val)
 		val->fract.y2 = 0.7;
 		val->fract.i_max = 50.0;
 	}
+	val->draw.zoom = 250.0;
 }
 
 int			ft_color(t_values *val)
