@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/16 12:25:49 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/16 14:42:34 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ typedef struct		s_values
 	char			choice;
 	char			stop;
 	char			set;
+	int				red;
+	int				green;
+	int				blue;
 	t_fract			fract;
 	t_draw			draw;
 }					t_values;

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 17:23:23 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/16 12:34:03 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/16 14:48:42 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,30 @@ void		ft_values(t_values *val)
 
 int			ft_color(t_values *val)
 {
-	int	red;
-	int	green;
-	int	blue;
-
-	red = 0;
-	green = 0;
-	blue = 0;
+	val->red = 0;
+	val->green = 0;
+	val->blue = 0;
 	if (val->set == 1)
 	{
-		red = (255 - (int)(val->fract.i * 255.0 / val->fract.i_max));
-		green = (255 - (int)(val->fract.i * 255.0 / val->fract.i_max));
-		blue = (255 - (int)(val->fract.i * 255.0 / val->fract.i_max));
+		val->red = (255 - (int)(val->fract.i * 255.0 / val->fract.i_max));
+		val->green = (255 - (int)(val->fract.i * 255.0 / val->fract.i_max));
+		val->blue = (255 - (int)(val->fract.i * 255.0 / val->fract.i_max));
 	}
 	if (val->set == 2)
-		red = (int)(val->fract.i * 255.0 / val->fract.i_max);
+		val->red = (int)(val->fract.i * 255.0 / val->fract.i_max);
 	if (val->set == 3)
-		green = (int)(val->fract.i * 255.0 / val->fract.i_max);
+		val->green = (int)(val->fract.i * 255.0 / val->fract.i_max);
 	if (val->set == 4)
-		blue = (int)(val->fract.i * 255.0 / val->fract.i_max);
+		val->blue = (int)(val->fract.i * 255.0 / val->fract.i_max);
 	if (val->set == 5)
-		blue = (int)(val->fract.i * 255.0) * (val->fract.i_max);
-	return (red << 16 | green << 8 | blue);
+		val->blue = (int)(val->fract.i * 255.0) * (val->fract.i_max);
+	if (val->set == 6)
+	{
+		val->red = (int)(val->fract.i * 255.0 / val->fract.i_max);
+		val->green = (int)(val->fract.i * 255.0 / val->fract.i_max);
+		val->blue = (int)(val->fract.i * 255.0 / val->fract.i_max);
+	}
+	return (val->red << 16 | val->green << 8 | val->blue);
 }
 
 void		ft_fill_px(t_values *val, int x, int y, int color)

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/16 10:18:18 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/16 14:48:25 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void		ft_params_window(t_values *val)
 	val->draw.l_win = 600.0;
 	val->draw.w_win = 800.0;
 	val->draw.zoom = 250.0;
-	val->draw.coef_zoom = 1.5;
+	val->draw.coef_zoom = 1.25;
 	val->stop = 0;
 	val->set = 1;
 }
