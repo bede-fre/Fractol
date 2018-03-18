@@ -50,8 +50,11 @@ typedef struct		s_draw
 {
 	void			*mlx;
 	void			*win;
+	void			*win2;
 	void			*img;
+	void			*img2;
 	char			*s_px;
+	char			*s_px2;
 	int				endian;
 	int				bpp;
 	int				sz_ln_px;
