@@ -6,7 +6,7 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/19 14:45:18 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/03/19 17:18:24 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,11 @@ CC		= clang
 SRC 		= main.c ft_burning_ship.c ft_julia.c \
 			ft_mandelbrot.c ft_values_and_color.c \
 			ft_mouse_events.c ft_keyboard_events.c \
-			ft_gradient.c ft_instructions.c
+			ft_gradient.c ft_instructions.c \
+			ft_burning_ship2.c ft_julia2.c \
+			ft_mandelbrot2.c ft_values_and_color2.c \
+			ft_mouse_events2.c ft_keyboard_events2.c \
+			ft_gradient2.c ft_window3.c
 INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a

@@ -6,24 +6,14 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/19 13:10:40 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/19 16:33:28 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void		ft_key_zoom_and_iter(int key, t_values *val)
+static void		ft_key_iter(int key, t_values *val)
 {
-	if (key == 43)
-	{
-		val->fract.i_max -= 5.0;
-		val->draw.zoom /= val->draw.coef_zoom;
-	}
-	if (key == 47)
-	{
-		val->fract.i_max += 5.0;
-		val->draw.zoom *= val->draw.coef_zoom;
-	}
 	if (key == 24)
 		val->fract.i_max += 10.0;
 	if (key == 27)
@@ -104,8 +94,8 @@ static void		ft_set_color(int key, t_values *val)
 
 int				ft_deal_key(int key, t_values *val)
 {
-	if (key == 24 || key == 27 || key == 43 || key == 47)
-		ft_key_zoom_and_iter(key, val);
+	if (key == 24 || key == 27)
+		ft_key_iter(key, val);
 	if (key == 123 || key == 124 || key == 125 || key == 126)
 		ft_move(key, val);
 	if (key == 28 || key == 25 || key == 29)

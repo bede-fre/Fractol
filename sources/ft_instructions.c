@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 13:07:16 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/19 15:36:16 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/19 16:33:58 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,6 @@ static void	ft_instructions3(t_values *val)
 	mlx_string_put(val->draw.mlx, val->draw.win2, 75, 445, 0xFF0000,
 		"+ : Increase maximum iteration");
 	mlx_string_put(val->draw.mlx, val->draw.win2, 75, 460, 0xFF0000,
-		"< : Dezoom");
-	mlx_string_put(val->draw.mlx, val->draw.win2, 75, 475, 0xFF0000,
-		"> : Zoom");
-	mlx_string_put(val->draw.mlx, val->draw.win2, 75, 490, 0xFF0000,
 		"Esc : Quit program");
 	mlx_string_put(val->draw.mlx, val->draw.win2, 440, 60, 0xFF0000,
 		"o Mouse shortcuts");

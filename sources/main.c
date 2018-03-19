@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/19 15:05:40 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/19 17:22:46 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@ static void		ft_params_window(t_values *val)
 	val->draw.l_win = 600.0;
 	val->draw.w_win = 800.0;
 	val->draw.zoom = 250.0;
+	val->draw.zoom2 = 250.0;
 	val->draw.coef_zoom = 1.25;
+	val->draw.coef_zoom2 = 1.25;
 	val->stop = 0;
+	val->stop2 = 0;
 	val->set = 1;
+	val->set2 = 1;
 }
 
 int				ft_mouse_cord(int x, int y, t_values *val)
@@ -60,14 +64,15 @@ int				main(int ac, char **av)
 {
 	t_values	*val;
 
-	if (ac != 2)
+	if (ac != 3)
 		ft_usage();
 	else
 	{
 		if (!(val = (t_values*)ft_memalloc(sizeof(t_values))))
 			exit(1);
 		val->choice = ft_atoi(av[1]);
-		if (val->choice > 3 || val->choice < 1)
+		val->choice2 = ft_atoi(av[2]);
+		if ((val->choice > 3 || val->choice < 1) && (val->choice2 >3 || val->choice2 < 1))
 		{
 			free(val);
 			ft_usage();
@@ -75,10 +80,14 @@ int				main(int ac, char **av)
 		ft_params_window(val);
 		val->draw.mlx = mlx_init();
 		ft_values(val);
+		ft_values2(val);
 		ft_init_image(val);
+		ft_init_image2(val);
 		ft_display_instructions(val);
 		mlx_mouse_hook(val->draw.win, ft_deal_mouse, val);
+		mlx_mouse_hook(val->draw.win3, ft_deal_mouse2, val);
 		mlx_key_hook(val->draw.win, ft_deal_key, val);
+		mlx_key_hook(val->draw.win3, ft_deal_key2, val);
 		mlx_loop(val->draw.mlx);
 	}
 	return (0);
