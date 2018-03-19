@@ -6,17 +6,27 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/16 14:58:57 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/19 13:10:40 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void		ft_iter(int key, t_values *val)
+static void		ft_key_zoom_and_iter(int key, t_values *val)
 {
-	if (key == 69)
+	if (key == 43)
+	{
+		val->fract.i_max -= 5.0;
+		val->draw.zoom /= val->draw.coef_zoom;
+	}
+	if (key == 47)
+	{
+		val->fract.i_max += 5.0;
+		val->draw.zoom *= val->draw.coef_zoom;
+	}
+	if (key == 24)
 		val->fract.i_max += 10.0;
-	if (key == 78)
+	if (key == 27)
 		val->fract.i_max -= 10.0;
 	ft_choice_fract(val);
 }
@@ -25,36 +35,36 @@ static void		ft_move(int key, t_values *val)
 {
 	if (key == 123)
 	{
-		val->fract.x1 += ((25.0 / val->draw.zoom));
-		val->fract.x2 += ((25.0 / val->draw.zoom));
-	}
-	if (key == 124)
-	{
 		val->fract.x1 -= ((25.0 / val->draw.zoom));
 		val->fract.x2 -= ((25.0 / val->draw.zoom));
 	}
-	if (key == 125)
+	if (key == 124)
 	{
-		val->fract.y1 -= ((25.0 / val->draw.zoom));
-		val->fract.y2 -= ((25.0 / val->draw.zoom));
+		val->fract.x1 += ((25.0 / val->draw.zoom));
+		val->fract.x2 += ((25.0 / val->draw.zoom));
 	}
-	if (key == 126)
+	if (key == 125)
 	{
 		val->fract.y1 += ((25.0 / val->draw.zoom));
 		val->fract.y2 += ((25.0 / val->draw.zoom));
+	}
+	if (key == 126)
+	{
+		val->fract.y1 -= ((25.0 / val->draw.zoom));
+		val->fract.y2 -= ((25.0 / val->draw.zoom));
 	}
 	ft_choice_fract(val);
 }
 
 static void		ft_set_fractal(int key, t_values *val)
 {
-	if (key == 83)
+	if (key == 28)
 	{
 		val->choice = 1;
 		ft_values(val);
 		ft_mandelbrot(val);
 	}
-	if (key == 84)
+	if (key == 25)
 	{
 		val->choice = 2;
 		ft_values(val);
@@ -63,7 +73,7 @@ static void		ft_set_fractal(int key, t_values *val)
 			0, 0);
 		mlx_hook(val->draw.win, 6, (1L << 6), ft_mouse_cord, val);
 	}
-	if (key == 85)
+	if (key == 29)
 	{
 		val->choice = 3;
 		ft_values(val);
@@ -87,21 +97,23 @@ static void		ft_set_color(int key, t_values *val)
 		val->set = 5;
 	if (key == 22)
 		val->set = 6;
+	if (key == 26)
+		val->set = 7;
 	ft_choice_fract(val);
 }
 
 int				ft_deal_key(int key, t_values *val)
 {
-	if (key == 69 || key == 78)
-		ft_iter(key, val);
+	if (key == 24 || key == 27 || key == 43 || key == 47)
+		ft_key_zoom_and_iter(key, val);
 	if (key == 123 || key == 124 || key == 125 || key == 126)
 		ft_move(key, val);
-	if (key == 83 || key == 84 || key == 85)
+	if (key == 28 || key == 25 || key == 29)
 		ft_set_fractal(key, val);
 	if (key == 18 || key == 19 || key == 20 || key == 21 || key == 23
-		|| key == 22)
+		|| key == 22 || key == 26)
 		ft_set_color(key, val);
-	if (key == 92)
+	if (key == 1)
 		val->stop = ((val->stop == 0) ? 1 : 0);
 	if (key == 49)
 	{

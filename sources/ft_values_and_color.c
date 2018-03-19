@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 17:23:23 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/16 14:48:42 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/19 13:10:55 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,20 +86,14 @@ void		ft_fill_px(t_values *val, int x, int y, int color)
 void		ft_str_fract(t_values *val)
 {
 	if (val->choice == 1)
-	{
 		mlx_string_put(val->draw.mlx, val->draw.win, 685, 10, 0xFF0000,
 			"Mandelbrot");
-	}
 	if (val->choice == 2)
-	{
 		mlx_string_put(val->draw.mlx, val->draw.win, 735, 10, 0xFF0000,
 			"Julia");
-	}
 	if (val->choice == 3)
-	{
 		mlx_string_put(val->draw.mlx, val->draw.win, 665, 10, 0xFF0000,
 				"Burning_ship");
-	}
 }
 
 void		ft_choice_fract(t_values *val)

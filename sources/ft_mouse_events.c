@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/16 12:25:40 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/19 14:48:03 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static double	ft_mapping(double p_s, double p_e, double mapping, int mouse)
 {
-	if (mouse == 4 || mouse == 2)
+	if (mouse == 4)
 		return (p_s + ((p_e - p_s) * mapping));
 	else
 		return (p_s + ((p_e - p_s) / mapping));
@@ -40,13 +40,13 @@ static void		ft_zoom(t_values *val, int x, int y, int mouse)
 int				ft_deal_mouse(int mouse, int x, int y, t_values *val)
 {
 	mlx_clear_window(val->draw.mlx, val->draw.win);
-	if (mouse == 5 || mouse == 1)
+	if (mouse == 5)
 	{
 		val->fract.i_max -= 5.0;
 		val->draw.zoom /= val->draw.coef_zoom;
 		ft_zoom(val, x, y, mouse);
 	}
-	if (mouse == 4 || mouse == 2)
+	if (mouse == 4)
 	{
 		val->fract.i_max += 5.0;
 		val->draw.zoom *= val->draw.coef_zoom;

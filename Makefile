@@ -6,7 +6,7 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/15 16:00:21 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/03/19 14:45:18 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME		= fractol
 CC		= clang
 SRC 		= main.c ft_burning_ship.c ft_julia.c \
 			ft_mandelbrot.c ft_values_and_color.c \
-			ft_mouse_events.c ft_keyboard_events.c
+			ft_mouse_events.c ft_keyboard_events.c \
+			ft_gradient.c ft_instructions.c
 INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a

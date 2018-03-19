@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:13:17 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/16 14:22:54 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/19 13:10:34 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void		ft_julia(t_values *val)
 				ft_fill_px(val, (val->fract.x), (val->fract.y), (val->set == 6)
 					? 0xFFFFFF : 0);
 			else
-				ft_fill_px(val, (val->fract.x), (val->fract.y), ft_color(val));
+				ft_fill_px(val, (val->fract.x), (val->fract.y), (val->set == 7)
+					? ft_smooth_gradient(val) : ft_color(val));
 		}
 	}
 }
