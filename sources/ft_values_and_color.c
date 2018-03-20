@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 17:23:23 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 10:41:12 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 12:36:38 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void		ft_str_fct(t_values *val)
 			"Julia");
 	if (val->choice == 3)
 		mlx_string_put(val->draw.mlx, val->draw.win, 665, 10, 0xFF0000,
-				"Burning_ship");
+			"Burning_ship");
 }
 
 void		ft_choice_fct(t_values *val)
