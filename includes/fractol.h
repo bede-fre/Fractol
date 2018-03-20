@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 14:02:27 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 15:20:24 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ void				ft_julia(t_values *val);
 void				ft_julia2(t_values *val);
 void				ft_burning_ship(t_values *val);
 void				ft_burning_ship2(t_values *val);
+void				ft_tricorn(t_values *val);
+void				ft_tricorn2(t_values *val);
 void				ft_init_values_fct(t_values *val);
 void				ft_init_values_fct2(t_values *val);
 int					ft_deal_key(int key, t_values *val);

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 13:13:31 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 15:30:20 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int				main(int ac, char **av)
 	val->choice = ft_atoi(av[1]);
 	if (ac == 3)
 		val->choice2 = ft_atoi(av[2]);
-	if ((ac == 2 && (val->choice > 3 || val->choice < 1))
-		|| (ac == 3 && (val->choice2 > 3 || val->choice2 < 1)))
+	if ((ac == 2 && (val->choice > 4 || val->choice < 1))
+		|| (ac == 3 && (val->choice2 > 4 || val->choice2 < 1)))
 		ft_usage(val);
 	ft_params_window(val);
 	val->draw.mlx = mlx_init();

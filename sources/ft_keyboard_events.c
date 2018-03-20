@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 14:02:51 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 15:26:24 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ static void		ft_key_iter(int key, t_values *val)
 		val->fct.i_max += 10.0;
 	if (key == 27)
 		val->fct.i_max -= 10.0;
+	if (key == 35)
+	{
+		val->choice = 4;
+		ft_values(val);
+		ft_tricorn(val);
+		mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0,
+			0);
+		ft_str_fct(val);
+	}
 	ft_choice_fct(val);
 }
 
@@ -94,11 +103,11 @@ static void		ft_set_color(int key, t_values *val)
 
 int				ft_deal_key(int key, t_values *val)
 {
-	if (key == 24 || key == 27)
+	if (key == 24 || key == 27 || key == 35)
 		ft_key_iter(key, val);
 	if (key == 123 || key == 124 || key == 125 || key == 126)
 		ft_move(key, val);
-	if (key == 28 || key == 25 || key == 29)
+	if (key == 28 || key == 25 || key == 29 || key == 35)
 		ft_set_fctal(key, val);
 	if (key == 18 || key == 19 || key == 20 || key == 21 || key == 23
 		|| key == 22 || key == 26)

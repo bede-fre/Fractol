@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 17:23:23 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 11:03:28 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 15:19:22 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_values2(t_values *val)
 {
-	if (val->choice2 == 1)
+	if (val->choice2 == 1 || val->choice2 == 4)
 	{
 		val->fct2.x1 = -2.1;
 		val->fct2.x2 = 1.1;
@@ -94,6 +94,9 @@ void		ft_str_fct2(t_values *val)
 	if (val->choice2 == 3)
 		mlx_string_put(val->draw.mlx, val->draw.win2, 665, 10, 0xFF0000,
 			"Burning_ship");
+	if (val->choice2 == 4)
+		mlx_string_put(val->draw.mlx, val->draw.win2, 715, 10, 0xFF0000,
+			"Tricorn");
 }
 
 void		ft_choice_fct2(t_values *val)
@@ -104,6 +107,8 @@ void		ft_choice_fct2(t_values *val)
 		ft_julia2(val);
 	if (val->choice2 == 3)
 		ft_burning_ship2(val);
+	if (val->choice2 == 4)
+		ft_tricorn2(val);
 	mlx_put_image_to_window(val->draw.mlx, val->draw.win2, val->draw.img2, 0,
 		0);
 	ft_str_fct2(val);

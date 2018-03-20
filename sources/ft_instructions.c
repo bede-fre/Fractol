@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 13:07:16 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 14:15:03 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 15:38:48 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,33 +48,35 @@ static void	ft_instructions2(t_values *val)
 		"9 : Julia fractal");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 265, 0xFF0000,
 		"0 : Burning ship fractal");
-	mlx_string_put(val->draw.mlx, val->draw.win3, 50, 295, 0xFF0000,
+	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 280, 0xFF0000,
+		"P : Tricorn fractal");
+	mlx_string_put(val->draw.mlx, val->draw.win3, 50, 310, 0xFF0000,
 		"- Moving");
-	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 310, 0xFF0000,
-		"Left arrow : Move left");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 325, 0xFF0000,
-		"Right arrow : Move right");
+		"Left arrow : Move left");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 340, 0xFF0000,
-		"Top arrow : Move up");
+		"Right arrow : Move right");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 355, 0xFF0000,
+		"Top arrow : Move up");
+	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 370, 0xFF0000,
 		"Bottom arrow : Move down");
 }
 
 static void	ft_instructions3(t_values *val)
 {
-	mlx_string_put(val->draw.mlx, val->draw.win3, 50, 385, 0xFF0000,
+	mlx_string_put(val->draw.mlx, val->draw.win3, 50, 400, 0xFF0000,
 		"- Others");
-	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 400, 0xFF0000,
-		"Space : Reset current fractal");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 415, 0xFF0000,
-		"S : Stop and start Julia variation");
+		"Space : Reset current fractal");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 430, 0xFF0000,
-		"- : Decrease maximum iteration");
+		"S : Stop and start Julia variation");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 445, 0xFF0000,
-		"+ : Increase maximum iteration");
+		"- : Decrease maximum iteration");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 460, 0xFF0000,
-		"Esc : Quit program");
+		"+ : Increase maximum iteration");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 475, 0xFF0000,
+		"Esc : Quit program");
+	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 490, 0xFF0000,
 		"H : Show/hide Shortcuts instructions");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 440, 60, 0xFF0000,
 		"o Mouse shortcuts");

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 14:03:13 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 15:28:19 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ static void		ft_key_iter2(int key, t_values *val)
 		val->fct2.i_max += 10.0;
 	if (key == 27)
 		val->fct2.i_max -= 10.0;
+	if (key == 35)
+	{
+		val->choice2 = 4;
+		ft_values(val);
+		ft_tricorn(val);
+		mlx_put_image_to_window(val->draw.mlx, val->draw.win2, val->draw.img2,
+			0, 0);
+		ft_str_fct2(val);
+	}
 	ft_choice_fct2(val);
 }
 
@@ -95,7 +104,7 @@ static void		ft_set_color2(int key, t_values *val)
 
 int				ft_deal_key2(int key, t_values *val)
 {
-	if (key == 24 || key == 27)
+	if (key == 24 || key == 27 || key == 35)
 		ft_key_iter2(key, val);
 	if (key == 123 || key == 124 || key == 125 || key == 126)
 		ft_move2(key, val);
