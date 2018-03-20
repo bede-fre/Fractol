@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 13:07:16 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 10:33:00 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 14:15:03 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_instructions1(t_values *val)
 {
 	mlx_string_put(val->draw.mlx, val->draw.win3, 230, 15, 0xFF0000,
-		"###  Fractol Shortcuts Instruction  ###");
+		"###  Fractol Shortcuts Instructions  ###");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 230, 20, 0xFF0000,
 		"_______________________________________");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 25, 60, 0xFF0000,
@@ -74,6 +74,8 @@ static void	ft_instructions3(t_values *val)
 		"+ : Increase maximum iteration");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 460, 0xFF0000,
 		"Esc : Quit program");
+	mlx_string_put(val->draw.mlx, val->draw.win3, 75, 475, 0xFF0000,
+		"H : Show/hide Shortcuts instructions");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 440, 60, 0xFF0000,
 		"o Mouse shortcuts");
 	mlx_string_put(val->draw.mlx, val->draw.win3, 465, 85, 0xFF0000,
@@ -95,4 +97,13 @@ void		ft_display_instructions(t_values *val)
 	ft_instructions1(val);
 	ft_instructions2(val);
 	ft_instructions3(val);
+}
+
+void		ft_show_and_hide_help(t_values *val)
+{
+	val->helpers = ((val->helpers == 0) ? 1 : 0);
+	if (val->helpers == 1)
+		ft_display_instructions(val);
+	else if (val->draw.win3 && val->helpers == 0)
+		mlx_destroy_window(val->draw.mlx, val->draw.win3);
 }

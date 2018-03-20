@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 12:37:25 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 13:13:31 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void		ft_params_window(t_values *val)
 	val->stop2 = 0;
 	val->set = 1;
 	val->set2 = 1;
+	val->helpers = 0;
 }
 
 int				ft_mouse_cord(int x, int y, t_values *val)
@@ -87,7 +88,6 @@ int				main(int ac, char **av)
 		ft_values2(val);
 		ft_init_image2(val);
 	}
-	ft_display_instructions(val);
 	mlx_loop(val->draw.mlx);
 	return (0);
 }

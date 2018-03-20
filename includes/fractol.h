@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 10:41:02 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 14:02:27 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct		s_values
 	char			stop2;
 	char			set;
 	char			set2;
+	int				helpers;
 	int				red;
 	int				red2;
 	int				green;
@@ -115,5 +116,6 @@ int					ft_smooth_gradient(t_values *val);
 int					ft_smooth_gradient2(t_values *val);
 void				ft_display_instructions(t_values *val);
 void				ft_init_image2(t_values *val);
+void				ft_show_and_hide_help(t_values *val);
 
 #endif
