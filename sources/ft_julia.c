@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:13:17 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/19 13:10:34 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 10:33:46 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 static void	ft_init_val2_julia(t_values *val)
 {
-	val->fract.i = -1.0;
-	val->fract.z_r = (val->fract.x / val->draw.zoom) + val->fract.x1;
-	val->fract.z_i = (val->fract.y / val->draw.zoom) + val->fract.y1;
+	val->fct.i = -1.0;
+	val->fct.z_r = (val->fct.x / val->draw.zoom) + val->fct.x1;
+	val->fct.z_i = (val->fct.y / val->draw.zoom) + val->fct.y1;
 }
 
 void		ft_julia(t_values *val)
 {
-	val->fract.x = -1.0;
-	while (++(val->fract.x) < val->draw.w_win)
+	val->fct.x = -1.0;
+	while (++(val->fct.x) < val->draw.w_win)
 	{
-		val->fract.y = -1.0;
-		while (++(val->fract.y) < val->draw.l_win)
+		val->fct.y = -1.0;
+		while (++(val->fct.y) < val->draw.l_win)
 		{
 			ft_init_val2_julia(val);
-			while (((val->fract.z_r * val->fract.z_r)
-				+ (val->fract.z_i * val->fract.z_i)) < 4.0
-					&& (++(val->fract.i) < (val->fract.i_max)))
+			while (((val->fct.z_r * val->fct.z_r)
+				+ (val->fct.z_i * val->fct.z_i)) < 4.0
+					&& (++(val->fct.i) < (val->fct.i_max)))
 			{
-				val->fract.tp = val->fract.z_r;
-				val->fract.z_r = (val->fract.z_r * val->fract.z_r)
-					- (val->fract.z_i * val->fract.z_i) + val->fract.c_r;
-				val->fract.z_i = (2.0 * val->fract.z_i * val->fract.tp)
-					+ val->fract.c_i;
+				val->fct.tp = val->fct.z_r;
+				val->fct.z_r = (val->fct.z_r * val->fct.z_r)
+					- (val->fct.z_i * val->fct.z_i) + val->fct.c_r;
+				val->fct.z_i = (2.0 * val->fct.z_i * val->fct.tp)
+					+ val->fct.c_i;
 			}
-			if (val->fract.i == val->fract.i_max)
-				ft_fill_px(val, (val->fract.x), (val->fract.y), (val->set == 6)
+			if (val->fct.i == val->fct.i_max)
+				ft_fill_px(val, (val->fct.x), (val->fct.y), (val->set == 6)
 					? 0xFFFFFF : 0);
 			else
-				ft_fill_px(val, (val->fract.x), (val->fract.y), (val->set == 7)
+				ft_fill_px(val, (val->fct.x), (val->fct.y), (val->set == 7)
 					? ft_smooth_gradient(val) : ft_color(val));
 		}
 	}

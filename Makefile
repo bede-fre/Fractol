@@ -6,7 +6,7 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/19 17:18:24 by bede-fre         ###   ########.fr        #
+#    Updated: 2018/03/20 10:58:22 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a
 OBJ		= $(addprefix ./sources/, $(SRC:.c=.o))
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -g
 FRAMEWORK	= -lpthread -framework OpenGL -framework Appkit
 
 _GREY		= "\033[30m"

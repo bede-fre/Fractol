@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/19 16:33:28 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 10:35:53 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,38 @@
 static void		ft_key_iter(int key, t_values *val)
 {
 	if (key == 24)
-		val->fract.i_max += 10.0;
+		val->fct.i_max += 10.0;
 	if (key == 27)
-		val->fract.i_max -= 10.0;
-	ft_choice_fract(val);
+		val->fct.i_max -= 10.0;
+	ft_choice_fct(val);
 }
 
 static void		ft_move(int key, t_values *val)
 {
 	if (key == 123)
 	{
-		val->fract.x1 -= ((25.0 / val->draw.zoom));
-		val->fract.x2 -= ((25.0 / val->draw.zoom));
+		val->fct.x1 -= ((25.0 / val->draw.zoom));
+		val->fct.x2 -= ((25.0 / val->draw.zoom));
 	}
 	if (key == 124)
 	{
-		val->fract.x1 += ((25.0 / val->draw.zoom));
-		val->fract.x2 += ((25.0 / val->draw.zoom));
+		val->fct.x1 += ((25.0 / val->draw.zoom));
+		val->fct.x2 += ((25.0 / val->draw.zoom));
 	}
 	if (key == 125)
 	{
-		val->fract.y1 += ((25.0 / val->draw.zoom));
-		val->fract.y2 += ((25.0 / val->draw.zoom));
+		val->fct.y1 += ((25.0 / val->draw.zoom));
+		val->fct.y2 += ((25.0 / val->draw.zoom));
 	}
 	if (key == 126)
 	{
-		val->fract.y1 -= ((25.0 / val->draw.zoom));
-		val->fract.y2 -= ((25.0 / val->draw.zoom));
+		val->fct.y1 -= ((25.0 / val->draw.zoom));
+		val->fct.y2 -= ((25.0 / val->draw.zoom));
 	}
-	ft_choice_fract(val);
+	ft_choice_fct(val);
 }
 
-static void		ft_set_fractal(int key, t_values *val)
+static void		ft_set_fctal(int key, t_values *val)
 {
 	if (key == 28)
 	{
@@ -70,7 +70,7 @@ static void		ft_set_fractal(int key, t_values *val)
 		ft_burning_ship(val);
 	}
 	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
-	ft_str_fract(val);
+	ft_str_fct(val);
 }
 
 static void		ft_set_color(int key, t_values *val)
@@ -89,7 +89,7 @@ static void		ft_set_color(int key, t_values *val)
 		val->set = 6;
 	if (key == 26)
 		val->set = 7;
-	ft_choice_fract(val);
+	ft_choice_fct(val);
 }
 
 int				ft_deal_key(int key, t_values *val)
@@ -99,7 +99,7 @@ int				ft_deal_key(int key, t_values *val)
 	if (key == 123 || key == 124 || key == 125 || key == 126)
 		ft_move(key, val);
 	if (key == 28 || key == 25 || key == 29)
-		ft_set_fractal(key, val);
+		ft_set_fctal(key, val);
 	if (key == 18 || key == 19 || key == 20 || key == 21 || key == 23
 		|| key == 22 || key == 26)
 		ft_set_color(key, val);
@@ -108,7 +108,7 @@ int				ft_deal_key(int key, t_values *val)
 	if (key == 49)
 	{
 		ft_values(val);
-		ft_choice_fract(val);
+		ft_choice_fct(val);
 	}
 	if (key == 53)
 	{

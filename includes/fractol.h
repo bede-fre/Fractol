@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/19 17:31:17 by bede-fre         ###   ########.fr       */
+/*   Updated: 2018/03/20 10:41:02 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,39 +38,12 @@ typedef struct		s_fract
 	double			z_i;
 	double			tp;
 	double			z_n;
-	double			continuous_index;
-	unsigned char	channel0;
-	unsigned char	channel1;
-	unsigned char	channel2;
-	unsigned char	channel3;
+	double			j;
+	unsigned char	col0;
+	unsigned char	col1;
+	unsigned char	col2;
 	int				color;
 }					t_fract;
-
-typedef struct		s_fract2
-{
-	double			x;
-	double			x1;
-	double			x2;
-	double			y;
-	double			y1;
-	double			y2;
-	double			i;
-	double			i_max;
-	double			img_x;
-	double			img_y;
-	double			c_r;
-	double			c_i;
-	double			z_r;
-	double			z_i;
-	double			tp;
-	double			z_n;
-	double			continuous_index;
-	unsigned char	channel0;
-	unsigned char	channel1;
-	unsigned char	channel2;
-	unsigned char	channel3;
-	int				color;
-}					t_fract2;
 
 typedef struct		s_draw
 {
@@ -109,8 +82,8 @@ typedef struct		s_values
 	int				green2;
 	int				blue;
 	int				blue2;
-	t_fract			fract;
-	t_fract			fract2;
+	t_fract			fct;
+	t_fract			fct2;
 	t_draw			draw;
 }					t_values;
 
@@ -122,8 +95,8 @@ void				ft_julia(t_values *val);
 void				ft_julia2(t_values *val);
 void				ft_burning_ship(t_values *val);
 void				ft_burning_ship2(t_values *val);
-void				ft_init_values_fract(t_values *val);
-void				ft_init_values_fract2(t_values *val);
+void				ft_init_values_fct(t_values *val);
+void				ft_init_values_fct2(t_values *val);
 int					ft_deal_key(int key, t_values *val);
 int					ft_deal_key2(int key, t_values *val);
 int					ft_deal_mouse(int mouse, int x, int y, t_values *val);
@@ -134,10 +107,10 @@ int					ft_color(t_values *val);
 int					ft_color2(t_values *val);
 int					ft_mouse_cord(int x, int y, t_values *val);
 int					ft_mouse_cord2(int x, int y, t_values *val);
-void				ft_choice_fract(t_values *val);
-void				ft_choice_fract2(t_values *val);
-void				ft_str_fract(t_values *val);
-void				ft_str_fract2(t_values *val);
+void				ft_choice_fct(t_values *val);
+void				ft_choice_fct2(t_values *val);
+void				ft_str_fct(t_values *val);
+void				ft_str_fct2(t_values *val);
 int					ft_smooth_gradient(t_values *val);
 int					ft_smooth_gradient2(t_values *val);
 void				ft_display_instructions(t_values *val);
