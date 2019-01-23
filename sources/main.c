@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 15:30:20 by bede-fre         ###   ########.fr       */
+/*   Updated: 2019/01/23 11:33:40 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ int				main(int ac, char **av)
 {
 	t_values	*val;
 
-	if (ac > 3 && ac < 2)
-		ft_usage(val);
+	if (ac > 3 || ac < 2)
+		ft_usage(NULL);
 	if (!(val = (t_values*)ft_memalloc(sizeof(t_values))))
 		exit(1);
 	val->choice = ft_atoi(av[1]);
