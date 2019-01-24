@@ -6,22 +6,21 @@
 #    By: bede-fre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 12:44:25 by bede-fre          #+#    #+#              #
-#    Updated: 2018/03/20 15:29:08 by bede-fre         ###   ########.fr        #
+#    Updated: 2019/01/24 14:57:40 by bede-fre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= fractol
-CC		= clang
+CC			= clang
 SRC 		= main.c ft_burning_ship.c ft_julia.c \
 			ft_mandelbrot.c ft_values_and_color.c \
 			ft_mouse_events.c ft_keyboard_events.c \
-			ft_gradient.c ft_instructions.c \
-			ft_values_and_color2.c ft_keyboard_events2.c \
+			ft_gradient.c ft_values_and_color2.c ft_keyboard_events2.c \
 			ft_fractal_2.c ft_tricorn.c
 INCLUDES	= ./includes
 LIBFT		= ./libft/libft.a
 MINILIBX	= ./minilibx/libmlx.a
-OBJ		= $(addprefix ./sources/, $(SRC:.c=.o))
+OBJ			= $(addprefix ./sources/, $(SRC:.c=.o))
 FLAGS		= -Wall -Wextra -Werror
 FRAMEWORK	= -lpthread -framework OpenGL -framework Appkit
 

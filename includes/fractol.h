@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/25 14:53:11 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 15:20:24 by bede-fre         ###   ########.fr       */
+/*   Updated: 2019/01/24 16:09:31 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,42 @@
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <pthread.h>
+# include <stdio.h>
+
+# define KEY_LEFT 123
+# define KEY_RIGHT 124
+# define KEY_DOWN 125
+# define KEY_UP 126
+# define KEY_P 35
+# define KEY_S 1
+# define KEY_0 29
+# define KEY_1 18
+# define KEY_2 19
+# define KEY_3 20
+# define KEY_4 21
+# define KEY_5 23
+# define KEY_6 22
+# define KEY_7 26
+# define KEY_8 28
+# define KEY_9 25
+# define KEY_MINUS 27
+# define KEY_PLUS 24
+# define KEY_SPACE 49
+# define KEY_ECHAP 53
+# define BUTTON_SCROLLUP 4
+# define BUTTON_SCROLLDOWN 5
+# define WHITE 0xFFFFFF
+# define MANDELBROT 1
+# define JULIA 2
+# define BURNING_SHIP 3
+# define TRICORN 4
+# define BLACK_AND_WHITE 1
+# define RED 2
+# define GREEN 3
+# define BLUE 4
+# define PSYCHEDELIC 5
+# define WHITE_AND_BLACK 6
+# define SMOOTH_GRADIANT 7
 
 typedef struct		s_fract
 {

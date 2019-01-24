@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 15:14:54 by bede-fre          #+#    #+#             */
-/*   Updated: 2019/01/23 11:33:40 by bede-fre         ###   ########.fr       */
+/*   Updated: 2019/01/24 16:47:10 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int				ft_mouse_cord(int x, int y, t_values *val)
 		val->fct.c_r = (double)x / (val->draw.w_win / (3.2)) - 1.6;
 		val->fct.c_i = (double)y / (val->draw.l_win / (2.4)) - 1.2;
 	}
-	if (val->choice == 2)
+	if (val->choice == JULIA)
 		ft_julia(val);
 	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
 	ft_str_fct(val);
@@ -55,11 +55,11 @@ int				ft_mouse_cord(int x, int y, t_values *val)
 static void		ft_init_image(t_values *val)
 {
 	val->draw.win = mlx_new_window(val->draw.mlx, val->draw.w_win,
-		val->draw.l_win, "Fractol");
+	val->draw.l_win, "Fractol");
 	val->draw.img = mlx_new_image(val->draw.mlx, val->draw.w_win,
-		val->draw.l_win);
+	val->draw.l_win);
 	val->draw.s_px = mlx_get_data_addr(val->draw.img, &val->draw.bpp,
-		&val->draw.sz_ln_px, &val->draw.endian);
+	&val->draw.sz_ln_px, &val->draw.endian);
 	ft_choice_fct(val);
 	mlx_mouse_hook(val->draw.win, ft_deal_mouse, val);
 	mlx_key_hook(val->draw.win, ft_deal_key, val);
@@ -77,7 +77,7 @@ int				main(int ac, char **av)
 	if (ac == 3)
 		val->choice2 = ft_atoi(av[2]);
 	if ((ac == 2 && (val->choice > 4 || val->choice < 1))
-		|| (ac == 3 && (val->choice2 > 4 || val->choice2 < 1)))
+	|| (ac == 3 && (val->choice2 > 4 || val->choice2 < 1)))
 		ft_usage(val);
 	ft_params_window(val);
 	val->draw.mlx = mlx_init();

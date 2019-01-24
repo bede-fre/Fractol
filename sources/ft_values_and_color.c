@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 17:23:23 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 15:18:24 by bede-fre         ###   ########.fr       */
+/*   Updated: 2019/01/24 16:32:24 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_values(t_values *val)
 {
-	if (val->choice == 1 || val->choice == 4)
+	if (val->choice == MANDELBROT || val->choice == TRICORN)
 	{
 		val->fct.x1 = -2.1;
 		val->fct.x2 = 1.1;
@@ -22,7 +22,7 @@ void		ft_values(t_values *val)
 		val->fct.y2 = 1.2;
 		val->fct.i_max = 50.0;
 	}
-	if (val->choice == 2)
+	if (val->choice == JULIA)
 	{
 		val->fct.x1 = -1.6;
 		val->fct.x2 = 1.6;
@@ -30,7 +30,7 @@ void		ft_values(t_values *val)
 		val->fct.y2 = 1.2;
 		val->fct.i_max = 150.0;
 	}
-	if (val->choice == 3)
+	if (val->choice == BURNING_SHIP)
 	{
 		val->fct.x1 = -2.0;
 		val->fct.x2 = 1.2;
@@ -46,21 +46,21 @@ int			ft_color(t_values *val)
 	val->red = 0;
 	val->green = 0;
 	val->blue = 0;
-	if (val->set == 1)
+	if (val->set == BLACK_AND_WHITE)
 	{
 		val->red = (255 - (int)(val->fct.i * 255.0 / val->fct.i_max));
 		val->green = (255 - (int)(val->fct.i * 255.0 / val->fct.i_max));
 		val->blue = (255 - (int)(val->fct.i * 255.0 / val->fct.i_max));
 	}
-	if (val->set == 2)
+	if (val->set == RED)
 		val->red = (int)(val->fct.i * 255.0 / val->fct.i_max);
-	if (val->set == 3)
+	if (val->set == GREEN)
 		val->green = (int)(val->fct.i * 255.0 / val->fct.i_max);
-	if (val->set == 4)
+	if (val->set == BLUE)
 		val->blue = (int)(val->fct.i * 255.0 / val->fct.i_max);
-	if (val->set == 5)
+	if (val->set == PSYCHEDELIC)
 		val->blue = (int)(val->fct.i * 255.0) * (val->fct.i_max);
-	if (val->set == 6)
+	if (val->set == WHITE_AND_BLACK)
 	{
 		val->red = (int)(val->fct.i * 255.0 / val->fct.i_max);
 		val->green = (int)(val->fct.i * 255.0 / val->fct.i_max);
@@ -75,7 +75,7 @@ void		ft_fill_px(t_values *val, int x, int y, int color)
 
 	px = (x * (val->draw.bpp) / 8) + (y * val->draw.sz_ln_px);
 	if (px < 0 || x >= (val->draw.w_win) || y >= (val->draw.l_win) ||
-		x < 0 || y < 0)
+	x < 0 || y < 0)
 		return ;
 	val->draw.s_px[px] = (unsigned char)(color);
 	val->draw.s_px[px + 1] = (unsigned char)(color >> 8);
@@ -85,29 +85,29 @@ void		ft_fill_px(t_values *val, int x, int y, int color)
 
 void		ft_str_fct(t_values *val)
 {
-	if (val->choice == 1)
+	if (val->choice == MANDELBROT)
 		mlx_string_put(val->draw.mlx, val->draw.win, 685, 10, 0xFF0000,
-			"Mandelbrot");
-	if (val->choice == 2)
+		"Mandelbrot");
+	if (val->choice == JULIA)
 		mlx_string_put(val->draw.mlx, val->draw.win, 735, 10, 0xFF0000,
-			"Julia");
-	if (val->choice == 3)
+		"Julia");
+	if (val->choice == BURNING_SHIP)
 		mlx_string_put(val->draw.mlx, val->draw.win, 665, 10, 0xFF0000,
-			"Burning_ship");
-	if (val->choice == 4)
+		"Burning_ship");
+	if (val->choice == TRICORN)
 		mlx_string_put(val->draw.mlx, val->draw.win, 715, 10, 0xFF0000,
-			"Tricorn");
+		"Tricorn");
 }
 
 void		ft_choice_fct(t_values *val)
 {
-	if (val->choice == 1)
+	if (val->choice == MANDELBROT)
 		ft_mandelbrot(val);
-	if (val->choice == 2)
+	if (val->choice == JULIA)
 		ft_julia(val);
-	if (val->choice == 3)
+	if (val->choice == BURNING_SHIP)
 		ft_burning_ship(val);
-	if (val->choice == 4)
+	if (val->choice == TRICORN)
 		ft_tricorn(val);
 	mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0, 0);
 	ft_str_fct(val);

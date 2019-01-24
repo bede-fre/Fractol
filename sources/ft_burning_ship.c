@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 14:13:17 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 12:27:07 by bede-fre         ###   ########.fr       */
+/*   Updated: 2019/01/24 16:47:41 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ void		ft_burning_ship(t_values *val)
 		{
 			ft_init_val_burning_ship(val);
 			while (((val->fct.z_r * val->fct.z_r)
-				+ (val->fct.z_i * val->fct.z_i)) < 4.0
-					&& (++(val->fct.i) < (val->fct.i_max)))
+			+ (val->fct.z_i * val->fct.z_i)) < 4.0
+			&& (++(val->fct.i) < (val->fct.i_max)))
 			{
 				val->fct.tp = (val->fct.z_r * val->fct.z_r)
-					- (val->fct.z_i * val->fct.z_i) + val->fct.c_r;
+				- (val->fct.z_i * val->fct.z_i) + val->fct.c_r;
 				val->fct.z_i = 2.0 * fabs(val->fct.z_r * val->fct.z_i)
-					+ val->fct.c_i;
+				+ val->fct.c_i;
 				val->fct.z_r = val->fct.tp;
 			}
 			if (val->fct.i == val->fct.i_max)
-				ft_fill_px(val, (val->fct.x), (val->fct.y), (val->set == 6)
-					? 0XFFFFFF : 0);
+				ft_fill_px(val, (val->fct.x), (val->fct.y),
+				(val->set == WHITE_AND_BLACK) ? WHITE : 0);
 			else
-				ft_fill_px(val, (val->fct.x), (val->fct.y), (val->set == 7)
-					? ft_smooth_gradient(val) : ft_color(val));
+				ft_fill_px(val, (val->fct.x), (val->fct.y), (val->set ==
+				SMOOTH_GRADIANT) ? ft_smooth_gradient(val) : ft_color(val));
 		}
 	}
 }
@@ -69,21 +69,21 @@ void		ft_burning_ship2(t_values *val)
 		{
 			ft_init_val_burning_ship2(val);
 			while (((val->fct2.z_r * val->fct2.z_r)
-				+ (val->fct2.z_i * val->fct2.z_i)) < 4.0
-					&& (++(val->fct2.i) < (val->fct2.i_max)))
+			+ (val->fct2.z_i * val->fct2.z_i)) < 4.0
+			&& (++(val->fct2.i) < (val->fct2.i_max)))
 			{
 				val->fct2.tp = (val->fct2.z_r * val->fct2.z_r)
-					- (val->fct2.z_i * val->fct2.z_i) + val->fct2.c_r;
+				- (val->fct2.z_i * val->fct2.z_i) + val->fct2.c_r;
 				val->fct2.z_i = 2.0 * fabs(val->fct2.z_r * val->fct2.z_i)
-					+ val->fct2.c_i;
+				+ val->fct2.c_i;
 				val->fct2.z_r = val->fct2.tp;
 			}
 			if (val->fct2.i == val->fct2.i_max)
-				ft_fill_px2(val, (val->fct2.x), (val->fct2.y), (val->set2 == 6)
-					? 0XFFFFFF : 0);
+				ft_fill_px2(val, (val->fct2.x), (val->fct2.y), (val->set2 ==
+				WHITE_AND_BLACK) ? WHITE : 0);
 			else
-				ft_fill_px2(val, (val->fct2.x), (val->fct2.y), (val->set2 == 7)
-					? ft_smooth_gradient2(val) : ft_color2(val));
+				ft_fill_px2(val, (val->fct2.x), (val->fct2.y), (val->set2 ==
+				SMOOTH_GRADIANT) ? ft_smooth_gradient2(val) : ft_color2(val));
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bede-fre <bede-fre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 13:19:58 by bede-fre          #+#    #+#             */
-/*   Updated: 2018/03/20 15:26:24 by bede-fre         ###   ########.fr       */
+/*   Updated: 2019/01/24 16:59:19 by bede-fre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static void		ft_key_iter(int key, t_values *val)
 {
-	if (key == 24)
+	if (key == KEY_PLUS)
 		val->fct.i_max += 10.0;
-	if (key == 27)
+	if (key == KEY_MINUS)
 		val->fct.i_max -= 10.0;
-	if (key == 35)
+	if (key == KEY_P)
 	{
-		val->choice = 4;
+		val->choice = TRICORN;
 		ft_values(val);
 		ft_tricorn(val);
 		mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img, 0,
-			0);
+		0);
 		ft_str_fct(val);
 	}
 	ft_choice_fct(val);
@@ -32,22 +32,22 @@ static void		ft_key_iter(int key, t_values *val)
 
 static void		ft_move(int key, t_values *val)
 {
-	if (key == 123)
+	if (key == KEY_LEFT)
 	{
 		val->fct.x1 -= ((25.0 / val->draw.zoom));
 		val->fct.x2 -= ((25.0 / val->draw.zoom));
 	}
-	if (key == 124)
+	if (key == KEY_RIGHT)
 	{
 		val->fct.x1 += ((25.0 / val->draw.zoom));
 		val->fct.x2 += ((25.0 / val->draw.zoom));
 	}
-	if (key == 125)
+	if (key == KEY_DOWN)
 	{
 		val->fct.y1 += ((25.0 / val->draw.zoom));
 		val->fct.y2 += ((25.0 / val->draw.zoom));
 	}
-	if (key == 126)
+	if (key == KEY_UP)
 	{
 		val->fct.y1 -= ((25.0 / val->draw.zoom));
 		val->fct.y2 -= ((25.0 / val->draw.zoom));
@@ -57,24 +57,24 @@ static void		ft_move(int key, t_values *val)
 
 static void		ft_set_fctal(int key, t_values *val)
 {
-	if (key == 28)
+	if (key == KEY_8)
 	{
-		val->choice = 1;
+		val->choice = MANDELBROT;
 		ft_values(val);
 		ft_mandelbrot(val);
 	}
-	if (key == 25)
+	if (key == KEY_9)
 	{
-		val->choice = 2;
+		val->choice = JULIA;
 		ft_values(val);
 		ft_julia(val);
 		mlx_put_image_to_window(val->draw.mlx, val->draw.win, val->draw.img,
-			0, 0);
+		0, 0);
 		mlx_hook(val->draw.win, 6, (1L << 6), ft_mouse_cord, val);
 	}
-	if (key == 29)
+	if (key == KEY_0)
 	{
-		val->choice = 3;
+		val->choice = BURNING_SHIP;
 		ft_values(val);
 		ft_burning_ship(val);
 	}
@@ -84,44 +84,42 @@ static void		ft_set_fctal(int key, t_values *val)
 
 static void		ft_set_color(int key, t_values *val)
 {
-	if (key == 18)
-		val->set = 1;
-	if (key == 19)
-		val->set = 2;
-	if (key == 20)
-		val->set = 3;
-	if (key == 21)
-		val->set = 4;
-	if (key == 23)
-		val->set = 5;
-	if (key == 22)
-		val->set = 6;
-	if (key == 26)
-		val->set = 7;
+	if (key == KEY_1)
+		val->set = BLACK_AND_WHITE;
+	if (key == KEY_2)
+		val->set = RED;
+	if (key == KEY_3)
+		val->set = GREEN;
+	if (key == KEY_4)
+		val->set = BLUE;
+	if (key == KEY_5)
+		val->set = PSYCHEDELIC;
+	if (key == KEY_6)
+		val->set = WHITE_AND_BLACK;
+	if (key == KEY_7)
+		val->set = SMOOTH_GRADIANT;
 	ft_choice_fct(val);
 }
 
 int				ft_deal_key(int key, t_values *val)
 {
-	if (key == 24 || key == 27 || key == 35)
+	if (key == KEY_PLUS || key == KEY_MINUS || key == KEY_P)
 		ft_key_iter(key, val);
-	if (key == 123 || key == 124 || key == 125 || key == 126)
+	if (key == KEY_LEFT || key == KEY_RIGHT || key == KEY_DOWN || key == KEY_UP)
 		ft_move(key, val);
-	if (key == 28 || key == 25 || key == 29 || key == 35)
+	if (key == KEY_8 || key == KEY_9 || key == KEY_0 || key == KEY_P)
 		ft_set_fctal(key, val);
-	if (key == 18 || key == 19 || key == 20 || key == 21 || key == 23
-		|| key == 22 || key == 26)
+	if (key == KEY_1 || key == KEY_2 || key == KEY_3 || key == KEY_4
+	|| key == KEY_5 || key == KEY_6 || key == KEY_7)
 		ft_set_color(key, val);
-	if (key == 1)
+	if (key == KEY_S)
 		val->stop = ((val->stop == 0) ? 1 : 0);
-	if (key == 49)
+	if (key == KEY_SPACE)
 	{
 		ft_values(val);
 		ft_choice_fct(val);
 	}
-	if (key == 4)
-		ft_show_and_hide_help(val);
-	if (key == 53)
+	if (key == KEY_ECHAP)
 	{
 		free(val);
 		exit(0);
