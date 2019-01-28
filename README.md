@@ -25,7 +25,7 @@ Enter in the dowloaded file ```cd fractol/``` and compile an executable with com
 
 ## Commands :
 
-* Color set choice
+### * Color set choice
 - 1             Black & White
 - 2             Red
 - 3             Green
@@ -34,7 +34,7 @@ Enter in the dowloaded file ```cd fractol/``` and compile an executable with com
 - 6     White & Black
 - 7     Smooth Gradient
 
-* Fractal set choice
+### * Fractal set choice
 - 8     Mandelbrot fractal
 - 9     Julia fractal
 - 0     Burning shio fractal
