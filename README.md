@@ -51,7 +51,7 @@ Enter in the dowloaded file ```cd fractol/``` and compile an executable with com
 - Space : Reset current fractal
 - S : Stop and start Julia variation
 - ```-``` : Decrease maximum iteration
-- ```+``` : Increase maximum iteration
+- ```=``` : Increase maximum iteration
 - Esc : Quit program
 
 ## Screenshots :
