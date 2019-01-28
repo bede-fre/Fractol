@@ -26,33 +26,33 @@ Enter in the dowloaded file ```cd fractol/``` and compile an executable with com
 ## Commands :
 
 ### Color set choice
-- 1 Black & White
-- 2 Red
-- 3 Green
-- 4 Blue
-- 5 Psychedelic
-- 6 White & Black
-- 7 Smooth Gradient
+- 1 : Black & White
+- 2 : Red
+- 3 : Green
+- 4 : Blue
+- 5 : Psychedelic
+- 6 : White & Black
+- 7 : Smooth Gradient
 
 ### Fractal set choice
-- 8 Mandelbrot fractal
-- 9 Julia fractal
-- 0 Burning ship fractal
-- P Tricorn fractal
+- 8 : Mandelbrot fractal
+- 9 : Julia fractal
+- 0 : Burning ship fractal
+- P : Tricorn fractal
 
 ### Moving
-- Left arrow Camera move left
-- Right Camera move right
-- Top arrow Camera move up
-- Bottom arrow Camera move down
-- Mouse wheel Camera zoom/dezoom
+- Left arrow : Camera move left
+- Right arrow : Camera move right
+- Top arrow : Camera move up
+- Bottom arrow : Camera move down
+- Mouse wheel : Camera zoom/dezoom
 
 ### Others
-- Space Reset current fractal
-- S Stop and start Julia variation
-- - Decrease maximum iteration
-- + Increase maximum iteration
-- Esc Quit program
+- Space : Reset current fractal
+- S : Stop and start Julia variation
+- - : Decrease maximum iteration
+- + : Increase maximum iteration
+- Esc : Quit program
 
 ## Screenshots :
 
