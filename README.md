@@ -9,7 +9,7 @@ A simple fractal renderer.
 * Color theme choice between seven differents (with one Smooth gradient)
 * Variation of iterations numbers
 * Camera controls (translations, zoom)
-
+* Open one or two separated windows
 
 ## Download format :
 
@@ -25,30 +25,34 @@ Enter in the dowloaded file ```cd fractol/``` and compile an executable with com
 
 ## Commands :
 
-### * Color set choice
-- 1             Black & White
-- 2             Red
-- 3             Green
-- 4     Blue
-- 5     Psychedelic
-- 6     White & Black
-- 7     Smooth Gradient
+### Color set choice
+- 1 Black & White
+- 2 Red
+- 3 Green
+- 4 Blue
+- 5 Psychedelic
+- 6 White & Black
+- 7 Smooth Gradient
 
-### * Fractal set choice
-- 8     Mandelbrot fractal
-- 9     Julia fractal
-- 0     Burning shio fractal
-- P     Tricorn fractal
+### Fractal set choice
+- 8 Mandelbrot fractal
+- 9 Julia fractal
+- 0 Burning ship fractal
+- P Tricorn fractal
 
-* Moving
-- Left arrow  Right rotation
-- X     Enable/disable auto-rotation
-- Z     Dezoom
-- C     Zoom
-- R     Up height
-- F     Down height
-- SPACE Reset
-- ESC   Quit
+### Moving
+- Left arrow Camera move left
+- Right Camera move right
+- Top arrow Camera move up
+- Bottom arrow Camera move down
+- Mouse wheel Camera zoom/dezoom
+
+### Others
+- Space Reset current fractal
+- S Stop and start Julia variation
+- - Decrease maximum iteration
+- + Increase maximum iteration
+- Esc Quit program
 
 ## Screenshots :
 
