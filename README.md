@@ -17,7 +17,7 @@ A simple fractal renderer.
 
 ## Compilation :
 
-Enter in the dowloaded file ```cd fractol/``` and compile an executable with command ```make``` after that run the program with one or two arguments ```./fractol choice_fractal_1 choice_fractal_2```
+Enter in the dowloaded folder ```cd fractol/``` and compile an executable with command ```make``` after that run the program with one or two arguments ```./fractol choice_fractal_1 choice_fractal_2```
 
 ### Example :
 
