@@ -5,10 +5,10 @@ A simple fractal renderer.
 
 ## Features :
 
-* Height control
-* Top and bottom colors choices as arguments
-* Color gradient between bottom and top color
-* Camera controls (translations, rotations, zoom)
+* Fractal choice between four differents
+* Color theme choice between seven differents (with one Smooth gradient)
+* Variation of iterations numbers
+* Camera controls (translations, zoom)
 
 
 ## Download format :
@@ -25,12 +25,23 @@ Enter in the dowloaded file ```cd fractol/``` and compile an executable with com
 
 ## Commands :
 
-- W     Up
-- S     Down
-- D     Right
-- A     Left
-- Q     Left rotation
-- E     Right rotation
+* Color set choice
+- 1             Black & White
+- 2             Red
+- 3             Green
+- 4     Blue
+- 5     Psychedelic
+- 6     White & Black
+- 7     Smooth Gradient
+
+* Fractal set choice
+- 8     Mandelbrot fractal
+- 9     Julia fractal
+- 0     Burning shio fractal
+- P     Tricorn fractal
+
+* Moving
+- Left arrow  Right rotation
 - X     Enable/disable auto-rotation
 - Z     Dezoom
 - C     Zoom
